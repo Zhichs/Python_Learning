@@ -11,9 +11,9 @@ Nije se moglo igrat""".title().swapcase()
 print(multi_line_string)
 
 
-first_name = "tonci"
-last_name = "zizaa"
-space = " "
-full_name = (first_name + space + last_name).upper()
+first_name = input("What is your first name? ").strip().capitalize()
+last_name = input("What is your last name? ").strip().capitalize()
+divider = " "
+full_name = (first_name + divider + last_name)
 
 print(full_name)
