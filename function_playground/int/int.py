@@ -1,3 +1,3 @@
-number = int("1111101000", 2)
+number_base_two = int("1111101000", 2)
 
-print(number)
+print(number_base_two)
