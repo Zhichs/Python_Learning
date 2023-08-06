@@ -40,7 +40,7 @@ def coke_machine(drinks_left, left_over_change):
 
 # This is the main function, which controls the entire program.
 def main():
-    drinks_left = 3  # Set the initial number of drinks in the machine to 5.
+    drinks_left = 4  # Set the initial number of drinks in the machine to 5.
     left_over_change = 0  # Set the initial amount of change left in the machine to 0.
 
     # Continue vending drinks until there are none left.
