@@ -1,3 +1,3 @@
-number = int("110", 2)
+number = int("1111101000", 2)
 
 print(number)
