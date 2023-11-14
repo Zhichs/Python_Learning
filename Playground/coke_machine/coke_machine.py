@@ -1,13 +1,12 @@
 # This function simulates a single transaction with the vending machine.
 # It takes the number of drinks left in the machine and the leftover change from the last transaction as input.
-def coke_machine(drinks_left, left_over_change):
+def coke_machine(machine_drinks_left, machine_left_over_change):
     # If there are no drinks left, print a message and return zeroes.
-    if drinks_left == 0:
+    if machine_drinks_left <= 0:
         print("Sorry, the machine is out of drinks!")
-        return 0, drinks_left
+        return 0, 0
     else:
-        # Set the amount due to be 50 minus the leftover change from the last transaction.
-        amount_due = 50 - left_over_change
+        amount_due = 50 - machine_left_over_change # Set the amount due to be 50 minus the leftover change from the last transaction.
         print("Amount Due: ", amount_due)
 
         # Continue asking for coins until the amount due is paid.
@@ -27,20 +26,24 @@ def coke_machine(drinks_left, left_over_change):
                 took_change = input("Press 'Y' to take your change, 'N' to leave it: ")
                 if took_change.lower() in ['y', 'n']:  # If the customer has made a valid choice,
                     if took_change.lower() == 'y':  # and they choose to take their change,
-                        left_over_change = 0  # no change is left over.
+                        machine_left_over_change = 0  # no change is left over.
                     else:  # If they choose not to take their change,
-                        left_over_change = change_owed  # the change owed is left over for the next customer.
+                        machine_left_over_change = change_owed  # the change owed is left over for the next customer.
                     break  # Break out of the loop asking if the customer wants their change.
                 else:  # If the customer has not made a valid choice,
                     print("Invalid input. Please press 'Y' or 'N'.")  # print an error message.
 
         # Subtract one from the number of drinks left in the machine, since the customer has just bought a drink.
-        drinks_left -= 1
-        return left_over_change, drinks_left
+        machine_drinks_left -= 1
+        # Check if the machine is now out of drinks after this transaction
+    if machine_drinks_left == 0:
+        print("Sorry, the machine is out of drinks!")
+        
+        return machine_left_over_change, machine_drinks_left
 
 # This is the main function, which controls the entire program.
 def main():
-    drinks_left = 4  # Set the initial number of drinks in the machine to 5.
+    drinks_left = 1  # Set the initial number of drinks in the machine to 5.
     left_over_change = 0  # Set the initial amount of change left in the machine to 0.
 
     # Continue vending drinks until there are none left.
